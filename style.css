@@ -43,7 +43,8 @@ div#main-container {
     background: repeat-y;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure full viewport height */
+    min-height: 100vh;
+    /* Ensure full viewport height */
     /* background-image: url("https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg"); */
 }
 
@@ -101,4 +102,5 @@ h1.logo-text {
     position: absolute;
     padding-top: 5vh;
     z-index: -1; /* Ensure the image is behind the div */
+    width: 100vw;
 }
