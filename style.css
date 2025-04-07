@@ -1,5 +1,4 @@
 body {
-    background-color: #8b8b8b; /* Light pink background */
     font-family: Arial, Helvetica, sans-serif;
     font-size: x-large;
     line-height: 1.6;
@@ -41,9 +40,11 @@ nav.main-nav {
 }  
 
 div#main-container {
+    background: repeat-y;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure full viewport height */
+    background-image: url("https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg");
 }
 
 .top-container {
@@ -58,9 +59,35 @@ div#main-container {
 .bottom-container {
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: start;
     width: 100vw;
     height: 50vh;
+}
+
+div.film-row-container .film-row-header {
+    padding-left: 1vw;
+    font-size: small;
+    color: #FFFFFF;
+}
+
+div.film-row-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0%;
+}
+
+div.film-row-container div.film-row{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    overflow: hidden;
+    overflow-x: scroll;
+    gap: 30px;
+}
+
+div.film-row img {
+    width: 10vw;
+    height: auto;
 }
 
 h1.logo-text {
