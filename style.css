@@ -102,5 +102,10 @@ h1.logo-text {
     position: absolute;
     padding-top: 5vh;
     z-index: -1; /* Ensure the image is behind the div */
-    width: 100vw;
+}
+
+@media screen and (max-width: 500px) {
+    #bg-img{
+        width: 100vw;
+    }
 }
