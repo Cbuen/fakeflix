@@ -31,7 +31,7 @@ nav.main-nav {
 
 #nav-list li a {
     text-decoration: none;
-    color: #FFFFFF; /* White text for better contrast */
+    color: #000000; /* White text for better contrast */
 }
 
 .logo-text {
@@ -44,7 +44,7 @@ div#main-container {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Ensure full viewport height */
-    background-image: url("https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg");
+    /* background-image: url("https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg"); */
 }
 
 .top-container {
@@ -61,7 +61,8 @@ div#main-container {
     flex-direction: column;
     text-align: start;
     width: 100vw;
-    height: 50vh;
+    height: 100vh;
+    background-color: rgba(51, 51, 51, 0.9);
 }
 
 div.film-row-container .film-row-header {
@@ -93,4 +94,11 @@ div.film-row img {
 h1.logo-text {
     color: rgb(229, 9, 20);
     filter: drop-shadow(30px 10px 4px rgb(219, 69, 77));
+}
+
+#bg-img{
+    filter: blur(3px);
+    position: absolute;
+    padding-top: 5vh;
+    z-index: -1; /* Ensure the image is behind the div */
 }
