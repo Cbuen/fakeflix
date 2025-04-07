@@ -1,0 +1,69 @@
+body {
+    background-color: #8b8b8b; /* Light pink background */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    line-height: 1.6;
+    margin: 0; /* Reset default body margin */
+}
+
+nav.main-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0; /* Add this line */
+    right: 0; /* Add this line */
+    z-index: 1030;
+    width: 100%; /* Change from 100vw to 100% */
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 5vh;
+    font-size: medium;
+    font-weight: bolder;
+}
+
+#nav-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 20px;
+}
+
+#nav-list li a {
+    text-decoration: none;
+    color: #FFFFFF; /* White text for better contrast */
+}
+
+.logo-text {
+    text-decoration: none;
+    color: rgb(229, 9, 20); /* White text for better contrast */
+}  
+
+div#main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 100vw;
+    height: 50vh;
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100vw;
+    height: 50vh;
+}
+
+h1.logo-text {
+    color: rgb(229, 9, 20);
+    filter: drop-shadow(30px 10px 4px rgb(219, 69, 77));
+}
