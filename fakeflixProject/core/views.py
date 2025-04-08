@@ -22,8 +22,6 @@ def home(request):
         "http://www.omdbapi.com/?s=mystery&apikey=582a95e7"
     )
 
-    print(mystery_movie_data.json())
-
     # json() returns json as dict to send to template
     action_movie_data = action_movie_data.json().get("Search", [])
 
