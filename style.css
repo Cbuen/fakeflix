@@ -54,7 +54,7 @@ div#main-container {
     text-align: center;
     justify-content: center;
     width: 100vw;
-    height: 50vh;
+    height: 60vh;
 }
 
 .bottom-container {
@@ -62,13 +62,12 @@ div#main-container {
     flex-direction: column;
     text-align: start;
     width: 100vw;
-    height: 100vh;
     background-color: rgba(51, 51, 51, 0.9);
 }
 
 div.film-row-container .film-row-header {
     padding-left: 1vw;
-    font-size: small;
+    font-size: x-large;
     color: #FFFFFF;
 }
 
@@ -85,6 +84,7 @@ div.film-row-container div.film-row{
     overflow: hidden;
     overflow-x: scroll;
     gap: 30px;
+    padding-bottom: 30px;
 }
 
 div.film-row img {
@@ -97,11 +97,13 @@ h1.logo-text {
     filter: drop-shadow(30px 10px 4px rgb(219, 69, 77));
 }
 
+/* background image */
 #bg-img{
     filter: blur(3px);
     position: absolute;
     padding-top: 5vh;
     z-index: -1; /* Ensure the image is behind the div */
+    background-repeat: repeat;
 }
 
 @media screen and (max-width: 500px) {
