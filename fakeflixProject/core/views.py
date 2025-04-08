@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import requests
 import random
 
@@ -45,10 +45,4 @@ def home(request):
 
 
 def search(request):
-    catigories = {
-        "action": "http://www.omdbapi.com/?s=action&apikey=582a95e7",
-        "comedy": "http://www.omdbapi.com/?s=comedy&apikey=582a95e7",
-        "scary": "http://www.omdbapi.com/?s=scary&apikey=582a95e7",
-        "mystery": "http://www.omdbapi.com/?s=mystery&apikey=582a95e7",
-    }
-    return render(request, "search.html")
+    return redirect('home')

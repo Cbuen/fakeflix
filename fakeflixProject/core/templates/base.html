@@ -12,11 +12,8 @@
 </head>
 
 <body>
-    {% block background_image %}
     <img id="bg-img" src=" https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg"
         alt="">
-
-    {% endblock background_image %}
 
     <div id="main-container">
         <!-- we use block nav in base to be used in all tempaltes -->
@@ -28,7 +25,7 @@
 
             <ul id="nav-list">
                 <li><a href="/">Home</a></li>
-                <li><a href="{% url 'search' %}">Search</a></li>
+                <!-- <li><a href="{% url 'search' %}">Search</a></li> -->
                 <li><a href="">Login</a></li>
             </ul>
         </nav>

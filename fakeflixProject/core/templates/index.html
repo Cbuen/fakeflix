@@ -1,78 +1,54 @@
 {% extends "base.html" %}
-{% load static %}
+{% block content %}
+<div class="top-container">
+    <h1 class="logo-text">Fakeflix</h1>
+</div>
+<div class="bottom-container">
 
-<!DOCTYPE html>
-<html lang="en">
+    <div class="film-row-container">
+        <h4 class="film-row-header">Action Movies</h4>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <title>Fakeflix</title>
-</head>
-
-<body>
-    <div id="main-container">
-        <!-- dont include block nav tag to use -->
-
-        {% block content %}
-        <div class="top-container">
-            <h1 class="logo-text">Fakeflix</h1>
+        <div class="film-row">
+            {% for movie in action_movie_data %}
+            <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+            {% endfor %}
         </div>
-        <div class="bottom-container">
-
-            <div class="film-row-container">
-                <h4 class="film-row-header">Action Movies</h4>
-
-                <div class="film-row">
-                    {% for movie in action_movie_data %}
-                    <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
-                    {% endfor %}
-                </div>
-
-            </div>
-
-            <div class="film-row-container">
-                <h4 class="film-row-header">Scary Movies</h4>
-
-                <div class="film-row">
-                    {% for movie in scary_movie_data %}
-                    <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
-                    {% endfor %}
-                </div>
-
-
-            </div>
-
-            <div class="film-row-container">
-                <h4 class="film-row-header">Comedy Movies</h4>
-
-                <div class="film-row">
-                    {% for movie in comedy_movie_data %}
-                    <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
-                    {% endfor %}
-                </div>
-
-            </div>
-
-            <div class="film-row-container">
-                <h4 class="film-row-header">Mystery Movies</h4>
-
-                <div class="film-row">
-                    {% for movie in mystery_movie_data %}
-                    <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
-                    {% endfor %}
-                </div>
-
-            </div>
-
-        </div>
-        {% endblock content %}
 
     </div>
 
-</body>
+    <div class="film-row-container">
+        <h4 class="film-row-header">Scary Movies</h4>
 
-</html>
+        <div class="film-row">
+            {% for movie in scary_movie_data %}
+            <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+            {% endfor %}
+        </div>
+
+
+    </div>
+
+    <div class="film-row-container">
+        <h4 class="film-row-header">Comedy Movies</h4>
+
+        <div class="film-row">
+            {% for movie in comedy_movie_data %}
+            <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <div class="film-row-container">
+        <h4 class="film-row-header">Mystery Movies</h4>
+
+        <div class="film-row">
+            {% for movie in mystery_movie_data %}
+            <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}
