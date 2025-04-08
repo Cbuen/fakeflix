@@ -5,6 +5,35 @@ body {
     margin: 0; /* Reset default body margin */
 }
 
+button {
+    border-radius: 20px; /* Rounded corners */
+    font-size: larger;
+    background-color: #14adff; /* Deep pink */
+    color: white;
+    margin: 5px; /* Add some margin around the buttons */
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition-duration: 0.4s;
+    margin-bottom: 1.5vh;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    width: 25vw;
+    height: 5vh;
+    font-size: larger;
+    margin-bottom: 5vh;
+}
+
+input#hidden-input {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+  }
+
+input#hidden-input.show {
+    opacity: 100;
+}
+
 nav.main-nav {
     display: flex;
     position: fixed;
@@ -26,7 +55,7 @@ nav.main-nav {
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    gap: 20px;
+    gap: 30px;
 }
 
 #nav-list li a {
@@ -37,15 +66,19 @@ nav.main-nav {
 .logo-text {
     text-decoration: none;
     color: rgb(229, 9, 20); /* White text for better contrast */
-}  
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.logo-text:hover {
+    transform: scale(2);
+}
 
 div#main-container {
     background: repeat-y;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    /* Ensure full viewport height */
-    /* background-image: url("https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg"); */
 }
 
 .top-container {
@@ -68,6 +101,10 @@ div#main-container {
 div.film-row-container .film-row-header {
     padding-left: 1vw;
     font-size: x-large;
+    color: #FFFFFF;
+}
+
+.search-header {
     color: #FFFFFF;
 }
 
@@ -102,6 +139,8 @@ h1.logo-text {
     filter: blur(3px);
     position: absolute;
     padding-top: 5vh;
+    width: 100vw;
+    height: 90vh;
     z-index: -1; /* Ensure the image is behind the div */
     background-repeat: repeat;
 }
@@ -112,7 +151,8 @@ h1.logo-text {
     }
 }
 
-div.film-row img {
+div.film-row img,
+div.movie-container img {
     transition-duration: 20ms;
     transition-timing-function: ease-in-out;
     transform-origin: top;
@@ -120,6 +160,42 @@ div.film-row img {
 
 }
 
-div.film-row img:hover {
+div.film-row img:hover,
+div.movie-container img:hover {
     transform: scale(1.08);
+}
+
+div#search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10vh;
+}
+
+#search-container {
+    position: fixed;
+    top: 0;
+    left: 0; /* Add this line */
+    right: 0; /* Add this line */
+    z-index: 1030;
+}
+
+div.movie-search {
+    background-color: #464646;
+    display: flex;
+    flex-direction: column;
+}
+
+div.movie-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 70px;
+}
+
+div.movie-contianer img {
+    width: 300px;
+    height: auto;
 }

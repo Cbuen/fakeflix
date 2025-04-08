@@ -1,1 +1,21 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
+
+{% block content %}
+<div id="top-container" class="top-container">
+    <h1 class="logo-text">Fakeflix</h1>
+</div>
+
+<div class="bottom-container">
+    <div class="movie-search">
+        <h3 class="search-header"> {{ input_value}}</h3>
+
+        <div class="movie-container">
+            {% for movie in searched_movie_data %}
+            <img src="{{ movie.Poster }}" alt="">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock content %}

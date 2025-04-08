@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <img id="bg-img" src=" https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg"
+    <img id="bg-img"
+        src="https://m.media-amazon.com/images/M/MV5BZDA4ZjVmM2MtYWJlNC00OTE5LThlOWQtYjQ4Yjg1ODg5MTE4XkEyXkFqcGc@._V1_FMjpg_UY2100_.jpg"
         alt="">
 
     <div id="main-container">
@@ -31,12 +32,19 @@
         </nav>
         {% endblock nav %}
 
+        <div id="search-container">
+            <form action="{% url 'search' %}" method="get">
+                {% csrf_token %}
+                {{ form.searchForm }}
+                <input disabled id="hidden-input" class="" placeholder="Movies, Genere.." name="search-input">
+                <button id="search-button" type="submit"><i class="ri-search-2-line"></i></button>
+            </form>
+        </div>
+
         {% block content %}
         {% endblock content %}
-
-
     </div>
-
+    <script src="{% static 'scripts.js' %}"></script>
 </body>
 
 </html>

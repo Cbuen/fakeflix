@@ -8,6 +8,8 @@ import random
 
 
 # home/landing route
+
+
 def home(request):
     # get requests for movie data
     action_movie_data = requests.get("http://www.omdbapi.com/?s=action&apikey=582a95e7")
@@ -45,4 +47,32 @@ def home(request):
 
 
 def search(request):
-    return redirect('home')
+    action_movie_data = requests.get("http://www.omdbapi.com/?s=action&apikey=582a95e7")
+
+    if request.method == "GET":
+        input_value = request.GET.get("search-input")
+        input_value = input_value.title()
+        searched_movie_data = requests.get(
+            f"http://www.omdbapi.com/?s={input_value}&apikey=582a95e7"
+        )
+
+        # json() returns json as dict to send to template
+        searched_movie_data = searched_movie_data.json().get("Search", [])
+
+    # we now pass the searched movie context
+    return render(
+        request,
+        "search.html",
+        {"searched_movie_data": searched_movie_data, "input_value": input_value},
+    )
+
+
+"""Debugging functions to avoid excessive API calls 1,000k per day"""
+
+
+# def search(request):
+#     return render(request, "search.html")
+
+
+# def home(request):
+#     return render(request, "index.html")
