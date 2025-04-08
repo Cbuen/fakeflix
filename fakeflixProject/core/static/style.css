@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    line-height: 1.6;
+    margin: 0; /* Reset default body margin */
+}
+
+nav.main-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0; /* Add this line */
+    right: 0; /* Add this line */
+    z-index: 1030;
+    width: 100%; /* Change from 100vw to 100% */
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 5vh;
+    font-size: large;
+    font-weight: bolder;
+}
+
+#nav-list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 20px;
+}
+
+#nav-list li a {
+    text-decoration: none;
+    color: #000000; /* White text for better contrast */
+}
+
+.logo-text {
+    text-decoration: none;
+    color: rgb(229, 9, 20); /* White text for better contrast */
+}  
+
+div#main-container {
+    background: repeat-y;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* Ensure full viewport height */
+    /* background-image: url("https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg"); */
+}
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 100vw;
+    height: 60vh;
+}
+
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 100vw;
+    background-color: rgba(51, 51, 51, 0.9);
+}
+
+div.film-row-container .film-row-header {
+    padding-left: 1vw;
+    font-size: x-large;
+    color: #FFFFFF;
+}
+
+div.film-row-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0%;
+}
+
+div.film-row-container div.film-row{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    overflow: hidden;
+    overflow-x: scroll;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+div.film-row img {
+    width: 25vw;
+    height: auto;
+}
+
+h1.logo-text {
+    color: rgb(229, 9, 20);
+    filter: drop-shadow(30px 10px 4px rgb(219, 69, 77));
+}
+
+/* background image */
+#bg-img{
+    filter: blur(3px);
+    position: absolute;
+    padding-top: 5vh;
+    z-index: -1; /* Ensure the image is behind the div */
+    background-repeat: repeat;
+}
+
+@media screen and (max-width: 500px) {
+    #bg-img{
+        width: 100vw;
+    }
+}
