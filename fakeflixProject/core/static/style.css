@@ -169,7 +169,7 @@ div#search-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10vh;
+    margin-top: 10vh;
 }
 
 #search-container {
