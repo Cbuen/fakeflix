@@ -1,4 +1,6 @@
+{% extends "base.html" %}
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,22 +14,10 @@
 </head>
 
 <body>
-    <img id="bg-img" src=" https://lumiere-a.akamaihd.net/v1/images/p_disney_lilo_stitch_poster_teaser_v1_a3d5e52f.jpeg"
-        alt="">
     <div id="main-container">
+        <!-- dont include block nav tag to use -->
 
-        <!-- navbar -->
-        <nav class="main-nav">
-            <!-- style to have distance from nav-list -->
-            <a class="logo-text" href="/">Fakeflix</a>
-
-            <ul id="nav-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="">Login</a></li>
-            </ul>
-        </nav>
-
-
+        {% block content %}
         <div class="top-container">
             <h1 class="logo-text">Fakeflix</h1>
         </div>
@@ -53,6 +43,7 @@
                     {% endfor %}
                 </div>
 
+
             </div>
 
             <div class="film-row-container">
@@ -66,7 +57,19 @@
 
             </div>
 
+            <div class="film-row-container">
+                <h4 class="film-row-header">Mystery Movies</h4>
+
+                <div class="film-row">
+                    {% for movie in mystery_movie_data %}
+                    <img src="{{ movie.Poster }}" alt="{{ movie.Title }}">
+                    {% endfor %}
+                </div>
+
+            </div>
+
         </div>
+        {% endblock content %}
 
     </div>
 

@@ -111,3 +111,15 @@ h1.logo-text {
         width: 100vw;
     }
 }
+
+div.film-row img {
+    transition-duration: 20ms;
+    transition-timing-function: ease-in-out;
+    transform-origin: top;
+
+
+}
+
+div.film-row img:hover {
+    transform: scale(1.08);
+}
