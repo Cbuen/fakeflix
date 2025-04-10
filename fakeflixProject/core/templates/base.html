@@ -25,13 +25,19 @@
             <a class="logo-text" href="/">Fakeflix</a>
 
             <ul id="nav-list">
-                <li><a href="/">Home</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                {% else %}
                 <!-- <li><a href="{% url 'search' %}">Search</a></li> -->
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="{% url 'sign-up' %}">Sign up</a></li>
+                {% endif %}
             </ul>
         </nav>
         {% endblock nav %}
+
+
+
 
         {% block search_container %}
         {% if user.is_authenticated %}
