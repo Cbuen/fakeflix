@@ -78,12 +78,15 @@ WSGI_APPLICATION = "fakeflixProject.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# mac local db password: rootroot
+# windows local db password: root
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "fakeflix",
         "USER": "root",
-        "PASSWORD": "rootroot",
+        "PASSWORD": "root",
         "HOST": "127.0.0.1",
         "PORT": "3306",
     }

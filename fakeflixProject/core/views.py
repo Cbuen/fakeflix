@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .forms import *
 import requests
 import random
 
@@ -8,8 +10,7 @@ import random
 
 
 # home/landing route
-
-
+@login_required(login_url="/login")
 def home(request):
     # get requests for movie data
     action_movie_data = requests.get("http://www.omdbapi.com/?s=action&apikey=582a95e7")
@@ -43,7 +44,7 @@ def home(request):
         },
     )
 
-
+@login_required(login_url="/login")
 def search(request):
     if request.method == "GET":
         input_value = request.GET.get("search-input")
@@ -68,6 +69,19 @@ def login(request):
         print(request.POST.get("username"))
 
     return render(request, "login.html")
+
+def signup(request):
+    return render(request, "sign-up.html")
+
+# UserForm comes from our forms.py file
+# simply .save() and call the request on the from to see if valid
+def create_account(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("login")    
+    return redirect("signup")
 
 
 """Debugging functions to avoid excessive API calls 1,000k per day"""

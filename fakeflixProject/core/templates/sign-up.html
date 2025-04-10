@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-
 {% block content %}
 <div class="input-container">
-    <form action="{% url 'login' %}" method="POST">
+    <form action="{% url 'create-account' %}" method="POST">
         {% csrf_token %}
         {{ form.UserForm }}
+        <input type="text" placeholder="first name" name="first_name" id="first_name">
+        <input type="text" placeholder="last_name" name="last_name" id="last_name">
+        <input type="email" placeholder="email" name="email" id="email">
         <input type="text" placeholder="username" name="username" id="username">
         <input type="password" placeholder="password" name="password" id="password">
         <div class="button-container">
-            <button type="submit">login</button>
             <button type="submit">sign up</button>
         </div>
     </form>
