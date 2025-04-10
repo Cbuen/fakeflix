@@ -1,23 +1,23 @@
 # Create your models here.
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from django.contrib.auth import login
 
 
-class AuthUser(models.Model):
-    id = models.AutoField(primary_key=True)  # Explicitly define primary key
-    password = models.CharField(max_length=128)
-    last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.IntegerField()
-    username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
-    email = models.CharField(max_length=254)
-    is_staff = models.IntegerField()
-    is_active = models.IntegerField()
-    date_joined = models.DateTimeField()
+class AuthUser(AbstractUser):
+    # Fix the user_permissions clash
+    user_permissions = models.ManyToManyField(
+        "auth.Permission",
+        verbose_name="user permissions",
+        blank=True,
+        help_text="Specific permissions for this user.",
+        related_name="authuser_permissions",  # Custom related_name
+        related_query_name="authuser",
+    )
 
     class Meta:
-        managed = False
         db_table = "auth_user"
+        managed = True  # Changed from False to True
 
 
 class Profiles(models.Model):

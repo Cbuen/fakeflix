@@ -6,11 +6,18 @@
         {% csrf_token %}
         {{ form.UserForm }}
         <input type="text" placeholder="username" name="username" id="username">
-        <input type="password" placeholder="password" name="password" id="password">
+        <input type="text" placeholder="password" name="password" id="password">
         <div class="button-container">
             <button type="submit">login</button>
             <button type="submit">sign up</button>
         </div>
     </form>
+    {% if user.is_authenticated %}
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button class="logout-button" type="submit">Logout</button>
+    </form>
+    {% endif %}
+
 </div>
 {% endblock content %}

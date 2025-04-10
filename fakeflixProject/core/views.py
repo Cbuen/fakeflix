@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate, logout
 from .forms import *
 import requests
 import random
@@ -44,6 +45,7 @@ def home(request):
         },
     )
 
+
 @login_required(login_url="/login")
 def search(request):
     if request.method == "GET":
@@ -64,24 +66,42 @@ def search(request):
     )
 
 
-def login(request):
+def login_user(request):
     if request.method == "POST":
-        print(request.POST.get("username"))
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        print(user)
+        if user is not None:
+            login(request, user)
+            return redirect("home")
 
     return render(request, "login.html")
 
+
+def logout_user(request):
+    if request.method == "POST":
+        if request.user.is_authenticated:
+            logout(request)
+            return redirect("login")
+    return redirect("login")
+
+
 def signup(request):
-    return render(request, "sign-up.html")
+    form = UserForm()
+
+    return render(request, "sign-up.html", {"form": form})
+
 
 # UserForm comes from our forms.py file
-# simply .save() and call the request on the from to see if valid
 def create_account(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("login")    
-    return redirect("signup")
+            form.save()  # Saves the new user
+            return redirect("login")  # Redirect to login page after success
+
+        return redirect("sign-up")
 
 
 """Debugging functions to avoid excessive API calls 1,000k per day"""

@@ -34,6 +34,7 @@
         {% endblock nav %}
 
         {% block search_container %}
+        {% if user.is_authenticated %}
         <div id="search-container">
             <form action="{% url 'search' %}" method="get">
                 {% csrf_token %}
@@ -42,6 +43,7 @@
                 <button id="search-button" type="submit"><i class="ri-search-2-line"></i></button>
             </form>
         </div>
+        {% endif %}
         {% endblock search_container %}
 
         {% block content %}

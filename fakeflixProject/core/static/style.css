@@ -210,8 +210,6 @@ div.input-container {
 div.input-container form {
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    grid-area: 15px;;
     align-items: center;
     background-color: #464646;
     width: auto;
@@ -237,4 +235,8 @@ div.button-container {
 
 div.button-container button {
     padding: 15px;
+}
+
+.logout-button {
+    background-color: red;
 }

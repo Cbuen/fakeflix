@@ -86,11 +86,12 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "fakeflix",
         "USER": "root",
-        "PASSWORD": "root",
+        "PASSWORD": "rootroot",
         "HOST": "127.0.0.1",
         "PORT": "3306",
     }
 }
+AUTH_USER_MODEL = "core.AuthUser"
 
 
 # Password validation
