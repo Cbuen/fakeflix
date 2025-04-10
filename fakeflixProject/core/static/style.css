@@ -241,4 +241,11 @@ div.button-container button {
 
 .logout-button {
     background-color: red;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    transform-origin: top;
+}
+
+.logout-button:hover {
+    transform: scale(2);
 }

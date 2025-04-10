@@ -26,7 +26,13 @@
 
             <ul id="nav-list">
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'login' %}">Login</a></li>
+                <li>
+                    <form method="POST" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="logout-button" type="submit">Logout</button>
+                    </form>
+                </li>
+
                 {% else %}
                 <!-- <li><a href="{% url 'search' %}">Search</a></li> -->
                 <li><a href="{% url 'login' %}">Login</a></li>
