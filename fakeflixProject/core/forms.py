@@ -17,4 +17,18 @@ class UserForm(UserCreationForm):
             "email",
             "password1",
             "password2",
-        ]  # Include password fields
+        ]
+        widgets = {
+            "username": forms.TextInput(attrs={"placeholder": "Enter your username"}),
+            "first_name": forms.TextInput(
+                attrs={"placeholder": "Enter your first name"}
+            ),
+            "last_name": forms.TextInput(attrs={"placeholder": "Enter your last name"}),
+            "email": forms.EmailInput(attrs={"placeholder": "Enter your email"}),
+            "password1": forms.PasswordInput(
+                attrs={"placeholder": "Create a password"}
+            ),
+            "password2": forms.PasswordInput(
+                attrs={"placeholder": "Confirm your password"}
+            ),
+        }
