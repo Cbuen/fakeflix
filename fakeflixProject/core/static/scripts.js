@@ -8,17 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     search_input.removeAttribute("disabled");
   });
 
-  // user enters back main container
-  top_container.addEventListener("mouseover", function () {
-    search_input.classList.remove("show");
-  });
-
   search_input.addEventListener("mouseover", function () {
     search_input.classList.add("show");
     search_input.removeAttribute("disabled");
   });
 
   search_input.addEventListener("mouseleave", function () {
+    search_input.classList.remove("show");
+  });
+
+  search_button.addEventListener("mouseleave", function () {
     search_input.classList.remove("show");
   });
 });

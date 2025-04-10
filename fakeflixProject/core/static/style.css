@@ -199,3 +199,42 @@ div.movie-contianer img {
     width: 300px;
     height: auto;
 }
+
+div.login-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25vh;
+    align-items: center;
+}
+
+div.login-container form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    grid-area: 15px;;
+    align-items: center;
+    background-color: #464646;
+    width: auto;
+    transition-duration: 0.5s;
+    transform-origin: top;
+    transition-timing-function: ease-in-out;
+
+}
+
+div.login-container form:hover {
+    transform: scale(1.08);
+}
+
+div.login-container form input {
+    width: 20vw;
+}
+
+div.button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+div.button-container button {
+    padding: 15px;
+}

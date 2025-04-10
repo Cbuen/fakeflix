@@ -27,11 +27,12 @@
             <ul id="nav-list">
                 <li><a href="/">Home</a></li>
                 <!-- <li><a href="{% url 'search' %}">Search</a></li> -->
-                <li><a href="">Login</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
             </ul>
         </nav>
         {% endblock nav %}
 
+        {% block search_container %}
         <div id="search-container">
             <form action="{% url 'search' %}" method="get">
                 {% csrf_token %}
@@ -40,6 +41,7 @@
                 <button id="search-button" type="submit"><i class="ri-search-2-line"></i></button>
             </form>
         </div>
+        {% endblock search_container %}
 
         {% block content %}
         {% endblock content %}

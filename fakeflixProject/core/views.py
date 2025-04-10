@@ -45,8 +45,6 @@ def home(request):
 
 
 def search(request):
-    action_movie_data = requests.get("http://www.omdbapi.com/?s=action&apikey=582a95e7")
-
     if request.method == "GET":
         input_value = request.GET.get("search-input")
         input_value = input_value.title()
@@ -65,7 +63,18 @@ def search(request):
     )
 
 
+def login(request):
+    if request.method == "POST":
+        print(request.POST.get("username"))
+
+    return render(request, "login.html")
+
+
 """Debugging functions to avoid excessive API calls 1,000k per day"""
+
+
+# def login(request):
+#     return render(request, "login.html")
 
 
 # def search(request):
