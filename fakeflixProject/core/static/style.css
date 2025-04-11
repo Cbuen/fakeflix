@@ -65,6 +65,7 @@ nav.main-nav {
 #nav-list {
     display: flex;
     flex-direction: row;
+    align-items: center;
     list-style-type: none;
     gap: 30px;
 }
@@ -230,12 +231,16 @@ div.input-container form {
     background-color: #464646;
     padding: 30px;
     gap: 10px;
-    width: auto;
     transition-duration: 0.5s;
     transform-origin: top;
     transition-timing-function: ease-in-out;
-
+    border-radius: 30px;
 }
+
+div.input-container form input {
+    margin-top: 20px;
+}
+
 
 div.input-container form:hover {
     transform: scale(1.08);

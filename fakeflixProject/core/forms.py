@@ -1,6 +1,6 @@
 from django import forms
 from .models import AuthUser, Profiles
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 
 
 class searchForm(forms.Form):
@@ -32,3 +32,19 @@ class UserForm(UserCreationForm):
                 attrs={"placeholder": "Confirm your password"}
             ),
         }
+
+
+class CustomPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={"class": "form-control", "placeholder": "Old password"}
+        )
+    )
+    new_password1 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={"class": "form-control", "placeholder": "new password"}
+        )
+    )
+    new_password2 = forms.CharField(
+        widget=forms.PasswordInput(attrs={"class": "form-control"})
+    )

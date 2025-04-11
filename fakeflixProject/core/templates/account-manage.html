@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="input-container">
+    <form action="{% url 'change-password' %}" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Old password:</label>
+            <input type="password" name="old_password" class="form-controls" required>
+            {% if form.old_password.errors %}
+            <div class="error">{{ form.old_password.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label>New password:</label>
+            <input type="password" name="new_password1" class="form-controls" required>
+            {% if form.new_password1.errors %}
+            <div class="error">{{ form.new_password1.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="form-group">
+            <label>Confirm password:</label>
+            <input type="password" name="new_password2" class="form-controls" required>
+            {% if form.new_password2.errors %}
+            <div class="error">{{ form.new_password2.errors }}</div>
+            {% endif %}
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary">
+                Change password
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}

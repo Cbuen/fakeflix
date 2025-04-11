@@ -104,6 +104,23 @@ def create_account(request):
         return redirect("sign-up")
 
 
+@login_required
+def account_manage(request):
+    form = PasswordChangeForm(user=request.user)
+    return render(request, "account-manage.html", {form: "form"})
+
+
+@login_required
+def changePassword(request):
+    if request.method == "POST":
+        form = PasswordChangeForm(user=request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("logout")
+    print(form)
+    return redirect("login")
+
+
 """Debugging functions to avoid excessive API calls 1,000k per day"""
 
 
