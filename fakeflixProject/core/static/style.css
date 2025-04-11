@@ -1,14 +1,15 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: x-large;
-    line-height: 1.6;
-    margin: 0; /* Reset default body margin */
+    font-family: 'Netflix Sans', Arial, sans-serif;
+    background-color: #141414; /* Dark background */
+    color: #e5e5e5; /* Light text */
+    margin: 0;
+    line-height: 1.4;
 }
 
 button {
     border-radius: 20px; /* Rounded corners */
     font-size: larger;
-    background-color: #14adff; /* Deep pink */
+    background-color: #e50914; /* Netflix red */
     color: white;
     margin: 5px; /* Add some margin around the buttons */
     border: none; /* Remove default button border */
@@ -18,17 +19,27 @@ button {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+button:hover {
+    background-color: #f6121d; /* Darker red on hover */
+    transform: scale(1.05);
+}
+
 input {
     width: 25vw;
     height: 5vh;
     font-size: larger;
     margin-bottom: 5vh;
+    background-color: rgba(36,36,36,0.8);
+    border: 1px solid #333;
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
 }
 
 input#hidden-input {
     opacity: 0;
     transition: opacity 250ms ease-in-out;
-  }
+}
 
 input#hidden-input.show {
     opacity: 100;
@@ -42,7 +53,7 @@ nav.main-nav {
     right: 0; /* Add this line */
     z-index: 1030;
     width: 100%; /* Change from 100vw to 100% */
-    background-color: transparent;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, transparent 100%);
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -60,18 +71,21 @@ nav.main-nav {
 
 #nav-list li a {
     text-decoration: none;
-    color: #000000; /* White text for better contrast */
+    color: #e5e5e5; /* White text for better contrast */
 }
 
 .logo-text {
     text-decoration: none;
-    color: rgb(229, 9, 20); /* White text for better contrast */
+    color: #e50914; /* Netflix red */
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.45);
 }
 
 .logo-text:hover {
-    transform: scale(2);
+    transform: scale(1.2);
 }
 
 div#main-container {
@@ -88,6 +102,8 @@ div#main-container {
     justify-content: center;
     width: 100vw;
     height: 60vh;
+    background: linear-gradient(to top, #141414 0%, transparent 50%), 
+                linear-gradient(to bottom, #141414 0%, transparent 50%);
 }
 
 .bottom-container {
@@ -95,17 +111,17 @@ div#main-container {
     flex-direction: column;
     text-align: start;
     width: 100vw;
-    background-color: rgba(51, 51, 51, 0.9);
+    background-color: #141414;
 }
 
 div.film-row-container .film-row-header {
     padding-left: 1vw;
     font-size: x-large;
-    color: #FFFFFF;
+    color: #e5e5e5;
 }
 
 .search-header {
-    color: #FFFFFF;
+    color: #e5e5e5;
 }
 
 div.film-row-container{
@@ -127,10 +143,17 @@ div.film-row-container div.film-row{
 div.film-row img {
     width: 25vw;
     height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+div.film-row img:hover {
+    transform: scale(1.08);
+    z-index: 10;
 }
 
 h1.logo-text {
-    color: rgb(229, 9, 20);
+    color: #e50914;
     filter: drop-shadow(30px 10px 4px rgb(219, 69, 77));
 }
 
@@ -149,20 +172,6 @@ h1.logo-text {
     #bg-img{
         width: 100vw;
     }
-}
-
-div.film-row img,
-div.movie-container img {
-    transition-duration: 20ms;
-    transition-timing-function: ease-in-out;
-    transform-origin: top;
-
-
-}
-
-div.film-row img:hover,
-div.movie-container img:hover {
-    transform: scale(1.08);
 }
 
 div#search-container {
@@ -195,9 +204,15 @@ div.movie-container {
     padding-bottom: 70px;
 }
 
-div.movie-contianer img {
+div.movie-container img {
     width: 300px;
     height: auto;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+}
+
+div.movie-container img:hover {
+    transform: scale(1.05);
 }
 
 div.input-container {
@@ -225,10 +240,6 @@ div.input-container form:hover {
     transform: scale(1.08);
 }
 
-div.input-container form input {
-    width: 20vw;
-}
-
 div.button-container {
     display: flex;
     flex-direction: row;
@@ -248,4 +259,16 @@ div.button-container button {
 
 .logout-button:hover {
     transform: scale(2);
+}
+
+
+.film-row-container::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    width: 60px;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, #141414 100%);
+    pointer-events: none;
+    z-index: 5;
 }
