@@ -1,5 +1,8 @@
 # **Fakeflix**
 
+Test Via Python Anywhere:
+https://cbuen.pythonanywhere.com
+
 ## **Description**
 
 Fakeflix is a web application built with Django, Python, MySQL, JavaScript, HTML, and Tailwind CSS, designed to simulate a movie streaming platform. It showcases movie posters and information fetched from the OMDB API, allowing users to interact with a Netflix-like interface without actual streaming content.
