@@ -1,16 +1,16 @@
-# **Fakeflix** 
+# **Fakeflix**
 
 ## **Description**
 
-This is a minimal flashcard study web app built using Django, Python, MySQL, JavaScript, HTML and Tailwind CSS. It allows users create flash card sets of any category they please.
-Study Without the Fluff
+Fakeflix is a web application built with Django, Python, MySQL, JavaScript, HTML, and Tailwind CSS, designed to simulate a movie streaming platform. It showcases movie posters and information fetched from the OMDB API, allowing users to interact with a Netflix-like interface without actual streaming content.
 
 ## **Features**
 
-- Create a personalized account for user authentication
-- Edit front and back of flash card
-- Delete and create new sets
-- Edit pre-exisitng card sets
+*   User Authentication: Create personalized accounts to manage preferences.
+*   Account Management: Users can create accounts and change their passwords.
+*   Browse Movies: Explore a catalog of movies with posters and details pulled from the OMDB API.
+*   Search Functionality: Find specific movies using the search feature.
+*   Interactive Interface: A visually appealing and responsive design using Vanilla CSS.
 
 <div style="display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -64,18 +64,9 @@ Study Without the Fluff
        src="">
 </div>
 
-
-
-
 ## **Technologies Used**
 
-- **Backend**: Python, Django, MySQL
-- **Frontend**: HTML, CSS, JavaScript
-- **CSS Framework**: Tailwind CSS v2
-- 
-**Future Goals**
+*   **Backend**: Python, Django, MySQL, OMDB API
+*   **Frontend**: HTML, CSS, JavaScript
+*   **CSS Framework**: Tailwind CSS v2
 
-Simple future goals I wish to add as I improve my skills and knowledge:
-
-1. **Shareable study sets**
-2.  **Card set generator**
