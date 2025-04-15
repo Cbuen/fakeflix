@@ -120,6 +120,9 @@ def changePassword(request):
     print(form)
     return redirect("login")
 
+def profiles(request):
+    return render(request, "profiles.html")
+
 
 """Debugging functions to avoid excessive API calls 1,000k per day"""
 
