@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
+from .models import *
 from .forms import *
 import requests
 import random
@@ -120,8 +121,24 @@ def changePassword(request):
     print(form)
     return redirect("login")
 
+
 def profiles(request):
-    return render(request, "profiles.html")
+    form = ProfileForm()
+    Model_Profile = Profiles.objects.all()
+
+    return render(
+        request, "profiles.html", {"form": form, "Model_Profile": Model_Profile}
+    )
+
+
+def edit_profiles(request):
+    form = ProfileForm()
+
+    return render(request, "edit-profiles.html", {"form": form})
+
+
+def add_profile(request):
+    redirect("home")
 
 
 """Debugging functions to avoid excessive API calls 1,000k per day"""

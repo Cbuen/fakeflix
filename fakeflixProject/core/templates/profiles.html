@@ -3,6 +3,13 @@
 {% block content %}
 <div class="input-container">
     {% if user.is_authenticated %}
+    {% if Model_Profile|length > 0 %}
+    <h1>Profiles</h1>
+    {% else %}
+    <a href="{% url 'edit-profiles' %}">
+        <h1>No Profiles Created..</h1>
+    </a>
+    {% endif %}
     {% endif %}
 
 </div>

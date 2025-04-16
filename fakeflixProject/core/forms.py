@@ -1,10 +1,17 @@
 from django import forms
 from .models import AuthUser, Profiles
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.forms import ModelForm
 
 
 class searchForm(forms.Form):
     search_input = forms.CharField(max_length=100)
+
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = Profiles
+        fields = ["profile1", "profile2", "profile3", "profile4"]
 
 
 class UserForm(UserCreationForm):

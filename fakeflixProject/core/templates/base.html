@@ -25,6 +25,7 @@
             <ul id="nav-list">
                 {% if user.is_authenticated %}
                 <li><a href="{% url 'account-manage' %}">Account</a></li>
+                <li><a href="{% url 'profile' %}">Profiles</a></li>
                 <li>
                     <form method="POST" action="{% url 'logout' %}">
                         {% csrf_token %}

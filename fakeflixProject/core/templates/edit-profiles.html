@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="input-container">
+    {% if user.is_authenticated %}
+    {% if Model_Profile|length < 4 %} <h1>Create a profile </h1>
+        <form action="{% url 'add-profile' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        {% else %}
+        <h1>Profile Limit Reached..</h1>
+        {% endif %}
+        {% endif %}
+
+</div>
+{% endblock content %}
