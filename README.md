@@ -73,3 +73,7 @@ Fakeflix is a web application built with Django, Python, MySQL, JavaScript, HTML
 *   **Frontend**: HTML, CSS, JavaScript
 *   **CSS Framework**: Tailwind CSS v2
 
+## **TODO: **
+
+Users can create up to 4 profiles
+Create playlists?
