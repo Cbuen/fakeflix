@@ -72,9 +72,9 @@ def login_user(request):
         username = request.POST["username"]
         password = request.POST["password"]
         user = authenticate(request, username=username, password=password)
-        print(user)
         if user is not None:
             login(request, user)
+            print(request.user.id)
             return redirect("home")
 
     return render(request, "login.html")
@@ -123,18 +123,37 @@ def changePassword(request):
 
 
 def profiles(request):
-    form = ProfileForm()
-    Model_Profile = Profiles.objects.all()
+    # If you want profiles per user:
+    # user_profiles = Profiles.objects.filter(user=request.user)
+    # If global profiles:
+    user_profiles = Profiles.objects.all()
+    max_profiles = 4
 
-    return render(
-        request, "profiles.html", {"form": form, "Model_Profile": Model_Profile}
-    )
+    if request.method == "POST":
+        form = ProfileForm(request.POST)
+        if form.is_valid() and user_profiles.count() < max_profiles:
+            profile = form.save(commit=False)
+            # If per user:
+            profile.user = request.user
+            profile.save()
+    else:
+        form = ProfileForm()
+
+    context = {
+        "form": form,
+        "profiles": user_profiles,
+        "max_profiles": max_profiles,
+    }
+    return render(request, "profiles.html", context)
 
 
 def edit_profiles(request):
     form = ProfileForm()
-
-    return render(request, "edit-profiles.html", {"form": form})
+    Model_Profile = Profiles.objects.all()
+    print(form)
+    return render(
+        request, "edit-profiles.html", {"form": form, "Model_Profile": Model_Profile}
+    )
 
 
 def add_profile(request):

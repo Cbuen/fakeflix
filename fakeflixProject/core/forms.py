@@ -11,7 +11,7 @@ class searchForm(forms.Form):
 class ProfileForm(ModelForm):
     class Meta:
         model = Profiles
-        fields = ["profile1", "profile2", "profile3", "profile4"]
+        fields = ["profile"]
 
 
 class UserForm(UserCreationForm):

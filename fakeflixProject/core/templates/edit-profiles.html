@@ -6,7 +6,7 @@
     {% if Model_Profile|length < 4 %} <h1>Create a profile </h1>
         <form action="{% url 'add-profile' %}" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+
             <button type="submit">Submit</button>
         </form>
         {% else %}

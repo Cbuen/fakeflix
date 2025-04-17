@@ -27,18 +27,9 @@ class Profiles(models.Model):
         related_name="profiles",
         db_column="user_id",
     )
-    profile1 = models.CharField(
+    profile = models.CharField(
         max_length=255, blank=True, null=True
     )  # Profile 1 (optional)
-    profile2 = models.CharField(
-        max_length=255, blank=True, null=True
-    )  # Profile 2 (optional)
-    profile3 = models.CharField(
-        max_length=255, blank=True, null=True
-    )  # Profile 3 (optional)
-    profile4 = models.CharField(
-        max_length=255, blank=True, null=True
-    )  # Profile 4 (optional)
 
     class Meta:
         db_table = "profiles"

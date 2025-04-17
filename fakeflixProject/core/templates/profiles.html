@@ -3,14 +3,33 @@
 {% block content %}
 <div class="input-container">
     {% if user.is_authenticated %}
-    {% if Model_Profile|length > 0 %}
-    <h1>Profiles</h1>
-    {% else %}
-    <a href="{% url 'edit-profiles' %}">
+    {% if profiles %}
+    <h1>Select a Profile</h1>
+    <ul style="list-style-type:none;">
+        {% for profile in profiles %}
+        <li> Profile-{{ forloop.counter }}: {{ profile.profile }} <!-- or whatever field --></li>
+        {% endfor %}
+    </ul>
+    {% if profiles|length < max_profiles %} <h2>Add a New Profile</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Profile</button>
+        </form>
+        {% else %}
+        <p>You have reached the maximum number of profiles ({{ max_profiles }}).</p>
+        {% endif %}
+        {% else %}
         <h1>No Profiles Created..</h1>
-    </a>
-    {% endif %}
-    {% endif %}
-
+        <h2>Create Your First Profile</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Profile</button>
+        </form>
+        {% endif %}
+        {% else %}
+        <p>Please log in to manage profiles.</p>
+        {% endif %}
 </div>
 {% endblock content %}
