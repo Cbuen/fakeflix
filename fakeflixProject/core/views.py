@@ -147,19 +147,6 @@ def profiles(request):
     return render(request, "profiles.html", context)
 
 
-def edit_profiles(request):
-    form = ProfileForm()
-    Model_Profile = Profiles.objects.all()
-    print(form)
-    return render(
-        request, "edit-profiles.html", {"form": form, "Model_Profile": Model_Profile}
-    )
-
-
-def add_profile(request):
-    redirect("home")
-
-
 """Debugging functions to avoid excessive API calls 1,000k per day"""
 
 

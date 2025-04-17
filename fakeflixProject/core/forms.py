@@ -13,6 +13,11 @@ class ProfileForm(ModelForm):
         model = Profiles
         fields = ["profile"]
 
+    # Explicitly set required if needed
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["profile"].required = True  # Ensures the field is required[4]
+
 
 class UserForm(UserCreationForm):
     class Meta:

@@ -278,3 +278,7 @@ div.button-container button {
     pointer-events: none;
     z-index: 5;
 }
+
+.profile-item {
+    font-size: larger;
+}
