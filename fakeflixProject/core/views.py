@@ -130,6 +130,9 @@ def profiles(request):
     user_profiles = Profiles.objects.all()
     max_profiles = 4
 
+    if len(user_profiles) == 0 and request.session.get("load_profile"):
+        request.session.pop("load_profile")
+
     if request.method == "POST":
         form = ProfileForm(request.POST)
         if form.is_valid() and user_profiles.count() < max_profiles:
