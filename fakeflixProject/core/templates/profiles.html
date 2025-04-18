@@ -7,14 +7,21 @@
     <h1>Select a Profile</h1>
     <ul style="list-style-type:none;">
         {% for profile in profiles %}
-        <form action="{% url 'load-profile' %}" method="POST">
-            {% csrf_token %}
-            <button name="profile_id" value="{{ profile.profile }}" class="raw-button">
-                <li> <i class="ri-account-circle-line"></i> Profile-{{ forloop.counter }}: {{ profile.profile }}
-                    <!-- or whatever field -->
-                </li>
-            </button>
-        </form>
+        <div class="profile-container">
+            <form action="delete-profile" method="POST">
+                {% csrf_token %}
+                <button type="submit" name="del_profile" value="{{ profile.id }}"><i
+                        class="ri-close-circle-fill"></i></button>
+            </form>
+            <form action="{% url 'load-profile' %}" method="POST">
+                {% csrf_token %}
+                <button name="profile_id" value="{{ profile.profile }}" class="raw-button">
+                    <li> <i class="ri-account-circle-line"></i> Profile-{{ forloop.counter }}: {{ profile.profile }}
+                        <!-- or whatever field -->
+                    </li>
+                </button>
+            </form>
+        </div>
         {% endfor %}
     </ul>
     {% if profiles|length < max_profiles %} <h2>Add a New Profile</h2>

@@ -293,3 +293,17 @@ button.raw-button {
     cursor: pointer;
     outline: inherit;
   }
+
+div.profile-container {
+    background-color: #464646;
+    border-radius: 20px;
+}
+
+.highlight-text {
+    text-decoration: none;
+    color: #e50914; /* Netflix red */
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.45);
+}

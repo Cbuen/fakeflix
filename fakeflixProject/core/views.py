@@ -82,7 +82,8 @@ def login_user(request):
 def logout_user(request):
     if request.method == "POST":
         if request.user.is_authenticated:
-            request.session.pop("load_profile")
+            if request.session.get("load_profile"):
+                request.session.pop("load_profile")
             logout(request)
             return redirect("login")
     return redirect("login")
@@ -149,12 +150,22 @@ def profiles(request):
 
 def load_profile(request):
     if request.method == "POST":
+        # we are getting the value from name attribute in element
         if request.session.get("load_profile"):
             request.session["load_profile"] = request.POST.get("profile_id")
             return redirect("home")
         else:
             request.session["load_profile"] = request.POST.get("profile_id")
             return redirect("home")
+
+
+def delete_profile(request):
+    # query sets are sets of objects
+    delete_profile = Profiles.objects.filter(id=request.POST.get("del_profile")).first()
+    delete_profile.delete()
+    if request.session.get("load_profile"):
+        request.session.pop("load_profile")
+    return redirect("profile")
 
 
 """Debugging functions to avoid excessive API calls 1,000k per day"""
