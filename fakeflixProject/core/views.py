@@ -14,7 +14,6 @@ import random
 # home/landing route
 @login_required(login_url="/login")
 def home(request):
-    # get requests for movie data
     action_movie_data = requests.get("http://www.omdbapi.com/?s=action&apikey=582a95e7")
 
     comedy_movie_data = requests.get("http://www.omdbapi.com/?s=comedy&apikey=582a95e7")
@@ -83,6 +82,7 @@ def login_user(request):
 def logout_user(request):
     if request.method == "POST":
         if request.user.is_authenticated:
+            request.session.pop("load_profile")
             logout(request)
             return redirect("login")
     return redirect("login")
@@ -145,6 +145,16 @@ def profiles(request):
         "max_profiles": max_profiles,
     }
     return render(request, "profiles.html", context)
+
+
+def load_profile(request):
+    if request.method == "POST":
+        if request.session.get("load_profile"):
+            request.session["load_profile"] = request.POST.get("profile_id")
+            return redirect("home")
+        else:
+            request.session["load_profile"] = request.POST.get("profile_id")
+            return redirect("home")
 
 
 """Debugging functions to avoid excessive API calls 1,000k per day"""
