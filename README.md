@@ -11,6 +11,7 @@ Fakeflix is a web application built with Django, Python, MySQL, JavaScript, HTML
 
 *   User Authentication: Create personalized accounts to manage preferences.
 *   Account Management: Users can create accounts and change their passwords.
+*   *   Users can create and delete profiles
 *   Browse Movies: Explore a catalog of movies with posters and details pulled from the OMDB API.
 *   Search Functionality: Find specific movies using the search feature.
 *   Interactive Interface: A visually appealing and responsive design using Vanilla CSS.
