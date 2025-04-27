@@ -39,14 +39,7 @@ Fakeflix is a web application built with Django, Python, MySQL, JavaScript, HTML
               transition: transform 0.2s;"
        alt="App screenshot 2" 
        src="https://github.com/user-attachments/assets/ee374450-aace-4cef-a8e5-74d4f5be5ba7">
-  
-  <img style="width: 100%; 
-              height: 100%;
-              object-fit: cover;
-              border-radius: 8px;
-              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-              transition: transform 0.2s;"
-       alt="https://github.com/user-attachments/assets/e5d8e599-6ab5-4689-b316-1c7759ec8740">
+
             
   <img style="width: 100%; 
               height: 100%;
